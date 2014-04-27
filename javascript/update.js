@@ -24,8 +24,8 @@ function update() {
     }
 
 
-    
-    game.physics.arcade.accelerateToXY(bola, 100, 400, 100);
+
+//    game.physics.arcade.accelerateToXY(bola, 100, 400, 100);
 
 
 

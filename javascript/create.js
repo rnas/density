@@ -16,7 +16,9 @@ function create() {
     bola.enableBody = true;
     bola.physicsBodyType = Phaser.Physics.ARCADE;
 
-    
+    // frutas = game.add.group();
+    // frutas.enableBody = true;
+    // frutas.physicsBodyType = Phaser.Physics.ARCADE;
 
     // // Adiciona as frutas
     // frutas = game.add.group();
