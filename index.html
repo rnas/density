@@ -1,18 +1,15 @@
-<html onkeydown="javascript:return setDirection(event);">
+<!doctype html>
+<html lang="en">
 <head>
-	<style type="text/css">
-		body{background: #eee;}
-		*{padding:0;margin:0;font-family: Courier New, Courier New, monospace;}
-		h1{color: #777; font-size: 35px; margin: 10px 0px;}
-		.score{margin-top:10px; font-size:20px;}
-		#cont{margin: 0 auto; padding: 20px 20px 20px 20px; width:120px; height:220px; background: url('background.png'); ;}
-	</style>
-	
+	<meta charset="UTF-8">
+	<title>Density</title>
 </head>
-<body id="body">
+<body>
 	
-		<div id="cont">
-		</div>
-	
-	<script type="text/Javascript" src="game.js"></script>
+	<script src="/bower_components/phaser/phaser.js"></script>
+	<script src="/javascript/preload.js"></script>
+	<script src="/javascript/update.js"></script>
+	<script src="/javascript/create.js"></script>
+	<script src="/javascript/initalize.js"></script>
 </body>
+</html>
