@@ -1,7 +1,8 @@
 Game = {};
 
 var pieces,
-	piece;
+	piece,
+	name;
 
 Game.Load = function (game) {};
 
@@ -21,22 +22,25 @@ Game.Load.prototype = {
 	},
 	update: function () {
 		this.physics.arcade.collide(pieces, pieces, function () {
-			if (pieces.children[pieces.children.length-1].body.touching.down && pieces.children[pieces.children.length-1].position.y > 70) {
+			if (pieces.children[pieces.children.length-1].body.touching.down && pieces.children[pieces.children.length-1].body.position.y <= 150){
+				alert('Game Over');
+			} else if (pieces.children[pieces.children.length-1].body.touching.down) {
+
 				this.createPiece();
-				console.log('Colidiu');
 			}
 		}, null, this);
 
 		if (piece.body.onFloor()) {
 			this.createPiece();
-			console.log('Chão');
 		}
 	},
 	createPiece: function () {
+		name = pieces.children.length;
 		piece = pieces.create(120, 0, 'rock');
-		piece.name = 'Rock_' + pieces.children.length-1;
+		piece.name = 'Rock_' + name;
 		this.physics.arcade.enable(piece);
-		piece.body.gravity.y = 100;
+		piece.body.velocity.y = 200;
+		piece.body.mass = 0;
 		piece.body.collideWorldBounds = true;
 	}
 };
