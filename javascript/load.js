@@ -2,7 +2,8 @@ Game = {};
 
 var pieces,
 	piece,
-	name;
+	name,
+	cursors;
 
 Game.Load = function (game) {};
 
@@ -19,6 +20,8 @@ Game.Load.prototype = {
 
 		pieces = this.add.group();
 		this.createPiece();
+
+		cursors = this.input.keyboard.createCursorKeys();
 	},
 	update: function () {
 		this.physics.arcade.collide(pieces, pieces, function () {
@@ -33,6 +36,12 @@ Game.Load.prototype = {
 		if (piece.body.onFloor()) {
 			this.createPiece();
 		}
+
+		if (cursors.left.isDown) {
+			piece.body.velocity.x = -150; 
+		} else if (cursors.right.isDown) {
+			piece.body.velocity.x = 150;
+		}		
 	},
 	createPiece: function () {
 		name = pieces.children.length;
@@ -41,6 +50,7 @@ Game.Load.prototype = {
 		this.physics.arcade.enable(piece);
 		piece.body.velocity.y = 200;
 		piece.body.mass = 0;
+		piece.body.bounce = 0;
 		piece.body.collideWorldBounds = true;
 	}
 };
