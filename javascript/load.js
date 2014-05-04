@@ -26,11 +26,14 @@ Game.Load.prototype = {
 	},
 	update: function () {
 		this.physics.arcade.collide(pieces, pieces, function () {
-			if (pieces.children[pieces.children.length-1].body.touching.down && pieces.children[pieces.children.length-1].body.position.y <= 150){
-				// alert('Game Over'); // Mover para tela de Game Over ou Pontuação.
+			var thisPiece = pieces.children[pieces.children.length-1];
+
+			if (thisPiece.body.touching.down && thisPiece.body.position.y <= 150){
 				this.paused = true;
-			} else if (pieces.children[pieces.children.length-1].body.touching.down) {
+				piece.body.velocity = 0;
+			} else if (thisPiece.body.touching.down) {
 				this.createPiece();
+				thisPiece.body.velocity = 0;
 			}
 		}, null, this);
 
@@ -39,17 +42,24 @@ Game.Load.prototype = {
 			this.createPiece();
 		}
 
-		if (cursors.left.isDown) {
-			piece.body.velocity.x = -150;
-		} else if (cursors.right.isDown) {
-			piece.body.velocity.x = 150;
+		if (cursors.left.justPressed(20) === true) {
+			piece.body.x = parseInt(piece.body.x) - parseInt(piece.body.width) - 1;
+		} else if (cursors.right.justPressed(20) === true) {
+			piece.body.x = parseInt(piece.body.x) + parseInt(piece.body.width) + 1;
+		} else if (cursors.down.justPressed(20) === true) { 
+			piece.body.velocity.y = 400;
 		} else {
 			piece.body.velocity.x = 1;
+		}
+
+		if (cursors.down.isUp) {
+			piece.body.velocity.y = 200;
 		}
 	},
 	createPiece: function () {
 		name = pieces.children.length;
-		piece = pieces.create(120, 0, 'rock');
+
+		piece = pieces.create(122, 0, 'rock');
 		piece.name = 'Rock_' + name;
 		piece.body.velocity.y = 200;
 		piece.body.mass = 0;
