@@ -2,6 +2,7 @@ game.module(
     'game.main'
 )
 .require(
+	'engine.physics',
 	'game.scenes',
 	'game.assets',
 	'game.objects'
