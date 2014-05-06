@@ -11,4 +11,12 @@ Scenario = game.Class.extend({
 	}
 });
 
+Rock = game.Class.extend({
+	init: function () {
+		this.sprite = new game.Sprite('rock');
+
+		game.scene.stage.addChild(this.sprite);
+	}
+});
+
 });

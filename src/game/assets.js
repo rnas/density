@@ -3,7 +3,7 @@ game.module(
 )
 .body(function () {
 
-// Sprites
 game.addAsset('sprite/scenario.jpg', 'scenario');
+game.addAsset('sprite/rock.png', 'rock');
 
 });
