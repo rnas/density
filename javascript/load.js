@@ -31,6 +31,7 @@ Game.Load.prototype = {
 			if (thisPiece.body.touching.down && thisPiece.body.position.y <= 150){
 				this.paused = true;
 				piece.body.velocity = 0;
+				console.log(pieces);
 			} else if (thisPiece.body.touching.down) {
 				this.createPiece();
 				thisPiece.body.velocity = 0;
@@ -43,9 +44,9 @@ Game.Load.prototype = {
 		}
 
 		if (cursors.left.justPressed(20) === true) {
-			piece.body.x = parseInt(piece.body.x) - parseInt(piece.body.width) - 1;
+			piece.body.x = parseInt(piece.body.x) - parseInt(piece.body.width) - 2;
 		} else if (cursors.right.justPressed(20) === true) {
-			piece.body.x = parseInt(piece.body.x) + parseInt(piece.body.width) + 1;
+			piece.body.x = parseInt(piece.body.x) + parseInt(piece.body.width) + 2;
 		} else if (cursors.down.justPressed(20) === true) { 
 			piece.body.velocity.y = 400;
 		} else {
