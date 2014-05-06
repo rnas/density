@@ -1,5 +1,11 @@
 pandaConfig = {
     sourceFolder: 'src',
-    mediaFolder: 'media',
-    outputFile: 'game.min.js'
+    mediaFolder: 'assets',
+    outputFile: 'game.min.js',
+
+    system: {
+    	orientation: 1,
+    	width: 320,
+    	height:480
+    }
 };
